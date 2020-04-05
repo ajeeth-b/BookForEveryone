@@ -1,0 +1,107 @@
+{% extends 'index.html' %}
+
+{% block  head%}
+{% load crispy_forms_tags %}
+<title>Get</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+a.active1 {
+  background-color: #2196F3;
+  color: white;
+}
+input[type=text],input[type=tel], input[type=email],textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;	
+  margin-top: 6px;
+  resize: vertical;
+}
+input[type=file] {
+  padding: 12px;
+  /*border: 1px solid #ccc;*/
+  border-radius: 4px;
+  box-sizing: border-box;	
+  margin-top: 6px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  margin: auto;
+  width: 40%;
+  min-width: 300px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+  background-color: #f2f2f2;
+  /*padding: 20px;*/
+  padding-left: 5%;
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+{{success}}
+<div class = "container">
+<form method = POST  enctype="multipart/form-data">
+	{% csrf_token %}
+	   <div class="someclass">
+          {{ f.title.errors }}
+          {{ f.title.label_tag }}
+          {{ f.title.help_text }}</p> 
+          {{ f.title }}
+      </div>
+      <div class="someclass">
+          {{ f.author.errors }}
+          {{ f.author.label_tag }}
+          {{ f.author.help_text }}</p> 
+          {{ f.author }}
+      </div>
+      <div class="someclass">
+          {{ f.publication.errors }}
+          {{ f.publication.label_tag }}
+          {{ f.publication.help_text }}</p> 
+          {{ f.publication }}
+      </div>
+      <div class="someclass">
+          {{ f.name.errors }}
+          {{ f.name.label_tag }}
+          {{ f.name.help_text }}</p>
+          {{ f.name }}
+      </div>
+      <div class="someclass">
+          {{ f.phone_no.errors }}
+          {{ f.phone_no.label_tag }}
+          {{ f.phone_no.help_text }}</p>
+          {{ f.phone_no }}
+      </div>
+        <div class="someclass">
+          {{ f.email.errors }}
+          {{ f.email.label_tag }}
+          {{ f.email.help_text }}</p>
+          {{ f.email }}
+      </div>
+      <div class="someclass">
+          {{ f.image.errors }}
+          {{ f.image.label_tag }}
+          {{ f.image.help_text }}</p>
+          {{ f.image }}
+      </div>
+	<input type="submit" name="okie">
+</form>
+</div>
+{% endblock %}

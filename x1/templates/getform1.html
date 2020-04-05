@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+
+{% block  head%}
+{% load crispy_forms_tags %}
+<title>Get</title>
+{% endblock %}
+
+{% block content %}
+{{success}}
+<form method = POST  enctype="multipart/form-data">
+	{% csrf_token %}
+	   <div class="someclass">
+          {{ f.title.errors }}
+          {{ f.title.label_tag }}
+          {{ f.title.help_text }}</p> 
+          {{ f.title }}
+      </div>
+      <div class="someclass">
+          {{ f.author.errors }}
+          {{ f.author.label_tag }}
+          {{ f.author.help_text }}</p> 
+          {{ f.author }}
+      </div>
+      <div class="someclass">
+          {{ f.publication.errors }}
+          {{ f.publication.label_tag }}
+          {{ f.publication.help_text }}</p> 
+          {{ f.publication }}
+      </div>
+      <div class="someclass">
+          {{ f.name.errors }}
+          {{ f.name.label_tag }}
+          {{ f.name.help_text }}</p>
+          {{ f.name }}
+      </div>
+      <div class="someclass">
+          {{ f.phone_no.errors }}
+          {{ f.phone_no.label_tag }}
+          {{ f.phone_no.help_text }}</p>
+          {{ f.phone_no }}
+      </div>
+        <div class="someclass">
+          {{ f.email.errors }}
+          {{ f.email.label_tag }}
+          {{ f.email.help_text }}</p>
+          {{ f.email }}
+      </div>
+      <div class="someclass">
+          {{ f.image.errors }}
+          {{ f.image.label_tag }}
+          {{ f.image.help_text }}</p>
+          {{ f.image }}
+      </div>
+	<input type="submit" name="okie">
+</form>
+{% endblock %}

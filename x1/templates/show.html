@@ -1,0 +1,91 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block  head%}
+<title>View</title>
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+*{
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+
+}
+a.active0 {
+  background-color: #2196F3;
+  color: white;
+}
+.cards {
+  padding:0 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  max-width: 900px;
+  grid-gap: 20px;
+  margin: 0 auto;
+
+}
+.card {
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow:1px 1px 4px 1px rgb(193, 193, 193);
+}
+.card img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+}
+.card .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #ff4747;
+  z-index:1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;   
+  display:none;
+}
+.card .overlay .item {
+  width: 150px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color:white; 
+  border: 1px solid white;
+  margin: 10px;
+}
+
+.card:hover .overlay { 
+  display: flex;
+  animation: 0.5s visible;
+}
+
+  </style>
+{% endblock head%}
+
+{% block content %}
+
+<div class="centered">
+  <section class="cards">
+{% for i in o %}
+  <article class="card">
+    <img  src="{{i.image.url}}">
+    <div class = "details">
+        <h3 >{{i.title}}</h3>
+        <p >{{i.author}}</p>
+        <p >{{i.publication}}</p>
+        <p >{{i.name}}</p>
+        <p >{{i.phone_no}}</p>
+        <p >{{i.email}}</p>
+    </div>
+    </article>
+{% endfor %}
+  </section>
+</div>
+{% endblock %}
