@@ -24,7 +24,7 @@ def bookform(request):
 		if f.is_valid():
 			f.save()
 			f = BookForm()
-			return render(request,'getform.html',{'f':f,'success':'Yessssssss'})
+			return render(request,'getform.html',{'f':f,'success':'Thanks For Your Contribution'})
 	else:
 		f = BookForm()
 	return render(request,'getform.html',{'f':f,'success':''})
