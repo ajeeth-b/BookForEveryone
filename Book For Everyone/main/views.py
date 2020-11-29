@@ -1,9 +1,7 @@
 from django.shortcuts import render
-# from PIL import Image
 from .models import Book
 from .forms import BookForm
-# from x1 import settings
-# Create your views here.
+
 def index(request):
 	if request.GET:
 		return show(request,search = request.GET['search'])
@@ -15,7 +13,6 @@ def show(request,search = ''):
 		search = request.GET['search']
 	if search != '':
 		x = [i for i in x if search in i.title]
-		search = ''
 		return render(request,'show.html',{'o':x})
 	return render(request,'show.html',{'o':x})
 
